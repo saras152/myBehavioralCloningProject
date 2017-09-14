@@ -121,4 +121,4 @@ I used this training data for training the model. The validation set helped dete
 
 The model has been able to successfully run the car in the simulator in autonomous environment. I have tested the model with simulator on track 1 with different resolutions and it worked equally well. 
 
-
+It is interesting to note that I tried running the car in autonomous mode at 30 mph limit, instead of the given 9 mph limit. Car was able to drive well within the drivable limits of the road, but it wanders a lot from the center. This behaviour is due to the fact that the steering angle is implemented with only Proportional controller and is marginally stable. Further increase in speed limit will set the car off-road. To eliminate this behaviour, a PI (proportional-integral) or PID (proportional-integral-derivarive) control for steering angles need to be implemented with the coefficients tuned for safely turning at the sharp curves.

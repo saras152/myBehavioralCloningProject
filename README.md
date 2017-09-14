@@ -118,6 +118,6 @@ I used this training data for training the model. The validation set helped dete
 
 ### Result
 
-The model has been able to successfully run the car in the simulator in autonomous environment. 
+The model has been able to successfully run the car in the simulator in autonomous environment. I have tested the model with simulator on track 1 with different resolutions and it worked equally well. 
 
 

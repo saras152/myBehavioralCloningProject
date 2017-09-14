@@ -18,6 +18,7 @@ Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/4
 ###Files Submitted & Code Quality
 
 ####1. Submission includes all required files and can be used to run the simulator in autonomous mode
+
 My project includes the following files:
 
 * model.py containing the script to create and train the model
@@ -25,25 +26,32 @@ My project includes the following files:
 * model.h5 containing a trained convolution neural network 
 * README.md  summarizing the results
 
-####2. Submission includes functional code Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing ```shpython drive.py model.h5```
+####2. Submission includes functional code 
+
+Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing ```python drive.py model.h5``` in the command prompt window.
 
 ####3. Submission code is usable and readable
+
 The model.py file conains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
 ###Model Architecture 
 
 ####1. An appropriate model architecture has been employed
+
 My model consists of multiple layers of convolution neural network with 5x5, 3x3 filter sizes and depth of 24 (model.py lines 24-32) 
 The model includes RELU layers to introduce nonlinearity along with every convolutution layer and dense layer, and the data is normalized in the model using a Keras lambda layer (code line 22). 
 
 ####2. Attempts to reduce overfitting in the model
+
 The model contains dropout layers in order to reduce overfitting (model.py lines 29,31,33). 
 The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 ####3. Model parameter tuning
+
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 40).
 
 ####4. Appropriate training data
+
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road. I also used some training data from patches of the road where some side lines are missing.
 The next section gives more details about how I created the training data.
 
@@ -77,9 +85,9 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 ####2. Final Model Architecture
 
-
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
-![Model Architecture][master/images/model_summary.png]
+
+![Model Architecture][./images/model_summary.png]
 
 ####3. Creation of the Training Set & Training Process
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:

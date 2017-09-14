@@ -87,17 +87,19 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
-![Model Architecture][./images/model_summary.png]
+![Model Architecture](./images/model_summary.png)
 
 #### 3. Creation of the Training Set & Training Process
 
 To capture good recovery behavior, I recorded recovery conditions on track one at different instances.
 These images show what a recovery looks like starting from right to center:
-![alt text][right_1.png]![alt text][right_2.png]![alt text][right_3.png]
+
+![alt text](./images/right_1.png)![alt text](./images/right_2.png)![alt text](./images/right_3.png)
 
 
 To augment the data sat, I also flipped images and angles thinking that this would increase increase the number of training data points. For example, here is an image that has then been flipped:
-![alt text][cam1.jpg]![alt text][flipped_cam1.jpg]
+
+![alt text](./images/cam1.jpg)![alt text](./images/flipped_cam1.jpg)
 
 Additionally, the images with more steering angles are used for data sugumentation. Some images are blurred, some images are shifted in X direction (lines 105 to 182).
 

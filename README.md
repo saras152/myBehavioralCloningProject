@@ -29,7 +29,7 @@ My project includes the following files:
 
 #### 2. Submission includes functional code 
 
-Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing ```python drive.py model.h5``` in the command prompt window.
+Using the Udacity provided simulator, the drive.py and my model.h5 file, the car can be driven autonomously around the track by executing ```python drive.py model.h5``` in the command prompt window, and starting the simulator in autonomous mode for the track 1.
 
 #### 3. Submission code is usable and readable
 
@@ -104,7 +104,7 @@ To augment the data sat, I also flipped images and angles thinking that this wou
 
 ![Flipped](./images/flipped_cam1.jpg)
 
-Additionally, the images with more steering angles are used for data sugumentation. Some images are blurred, some images are shifted in X direction (lines 105 to 182).
+Additionally, the images with more steering angles are used for data augumentation. Some images are blurred, some images are shifted in X direction (lines 105 to 182).
 
 After the collection process, I had 19886 data points from an original 5610 number of data points. I then preprocessed this data by normalizing first and then cropping.
 

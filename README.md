@@ -122,3 +122,7 @@ I used this training data for training the model. The validation set helped dete
 The model has been able to successfully run the car in the simulator in autonomous environment. I have tested the model with simulator on track 1 with different resolutions and it worked equally well. 
 
 It is interesting to note that I tried running the car in autonomous mode at 30 mph limit, instead of the given 9 mph limit. Car was able to drive well within the drivable limits of the road, but it wanders a lot from the center. This behaviour is due to the fact that the steering angle control is implemented with open loop control and is marginally stable. Further increase in speed limit ( the simulator does not run above 30mph when I checked for this) will set the car off-road. To eliminate this behaviour, a PI (proportional-integral) or PID (proportional-integral-derivarive) control for steering angles need to be implemented with the coefficients tuned for safely turning at the sharp curves. My attempts at this are not successful yet, as the PID tuning takes too much time, and the tuning is usually model dependent, i.e. in this case the road type dependent. However, with the open loop control of the steering angles, the car is able to finish multiple laps without any problems. 
+
+One of the difficult turns on the track ( in terms of road identification and turn angles) is presented below.
+
+![Sharp left](https://github.com/saras152/myBehavioralCloningProject/blob/master/images/autonomousSim_turn.gif)

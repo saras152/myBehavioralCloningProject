@@ -1,6 +1,5 @@
-# **Behavioral Cloning** for project 3 of term1
+# **Behavioral Cloning** 
 
-**Behavioral Cloning**
 
 The goals / steps of this project are the following:
 
@@ -8,17 +7,7 @@ The goals / steps of this project are the following:
 * Build, a convolution neural network in Keras that predicts steering angles from images
 * Train and validate the model with a training and validation set
 * Test that the model successfully drives around track one without leaving the road
-* Summarize the results with a written report
 
-
-## Rubric Points
-
-Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
----
-
-### Files Submitted & Code Quality
-
-#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
 
@@ -27,31 +16,26 @@ My project includes the following files:
 * model.h5 containing a trained convolution neural network 
 * README.md  summarizing the results
 
-#### 2. Submission includes functional code 
 
-Using the Udacity provided simulator, the drive.py and my model.h5 file, the car can be driven autonomously around the track by executing ```python drive.py model.h5``` in the command prompt window, and starting the simulator in autonomous mode for the track 1.
-
-#### 3. Submission code is usable and readable
+Using the simulator, the drive.py and my model.h5 file, the car can be driven autonomously around the track by executing ```python drive.py model.h5``` in the command prompt window, and starting the simulator in autonomous mode for the track 1.
 
 The model.py file conains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
 ### Model Architecture 
 
-#### 1. An appropriate model architecture has been employed
 
 My model consists of multiple layers of convolution neural network with 5x5, 3x3 filter sizes and depth of 24 and a stride of 2(model.py lines 24-32).
 The model includes RELU layers to introduce nonlinearity along with every convolutution layer and dense layer, and the data is normalized in the model using a Keras lambda layer (code line 22). 
 
-#### 2. Attempts to reduce overfitting in the model
 
 The model contains dropout layers in order to reduce overfitting (model.py lines 29,31,33). 
 The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-#### 3. Model parameter tuning
+
 
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 40).
 
-#### 4. Appropriate training data
+
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road. I also used some training data from patches of the road where some side lines are missing.
 The next section gives more details about how I created the training data.
@@ -80,7 +64,7 @@ Then I increased the number of epochs from 10 to 20, and the performance improve
 
 At the end of every change, I was running the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track. 
 
-I realized that the input data quality has a great deal of effect on the model's training. I tried to capture fresh data with only recoveries from the sides of the roads, at turns and at places where track might not have side lines. This data is surprizingly a small set, and took only 1/4th the time it took for my earlier data set.
+I realized that the input data quality has a great deal of effect on the model's training. I tried to capture fresh data with only recoveries from the sides of the roads, at turns and at places where track might not have side lines. This data is surprizingly a small set, and took only 1/4th the time compared to the time it took for my earlier data set.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
@@ -106,7 +90,7 @@ To augment the data sat, I also flipped images and angles thinking that this wou
 
 Additionally, the images with more steering angles are used for data augumentation. Some images are blurred, some images are shifted in X direction (lines 105 to 182).
 
-After the collection process, I had 19886 data points from an original 5610 number of data points. I then preprocessed this data by normalizing first and then cropping.
+After the collection process, I had 19886 data points from an original 5610 number of data points. I preprocessed this data by normalizing first and then cropping.
 
 Distribution of the data points before and after data augumentation is below
 
@@ -119,9 +103,9 @@ I used this training data for training the model. The validation set helped dete
 
 ### Result
 
-The model has been able to successfully run the car in the simulator in autonomous environment. I have tested the model with simulator on track 1 with different resolutions and it worked equally well. 
+The model has been able to successfully run the car in the simulator in the autonomous environment. I have tested the model with simulator on track 1 with different resolutions and it worked equally well. 
 
-It is interesting to note that I tried running the car in autonomous mode at 30 mph limit, instead of the given 9 mph limit. Car was able to drive well within the drivable limits of the road, but it wanders a lot from the center. This behaviour is due to the fact that the steering angle control is implemented with open loop control and is marginally stable. Further increase in speed limit ( the simulator does not run above 30mph when I checked for this) will set the car off-road. To eliminate this behaviour, a PI (proportional-integral) or PID (proportional-integral-derivarive) control for steering angles need to be implemented with the coefficients tuned for safely turning at the sharp curves. My attempts at this are not successful yet, as the PID tuning takes too much time, and the tuning is usually model dependent, i.e. in this case the road type dependent. However, with the open loop control of the steering angles, the car is able to finish multiple laps without any problems. 
+It is interesting to note that I tried running the car in autonomous mode at 30 mph limit, instead of the given 9 mph limit. Car was able to drive well within the drivable limits of the road, but it wanders a lot from the center. This behaviour is due to the fact that the steering angle control is implemented with open loop control and is marginally stable. Further increase in speed limit ( the simulator does not run above 30mph when I checked for this) will set the car off-road. To eliminate this behaviour, a PI (proportional-integral) or PID (proportional-integral-derivarive) control for steering angles need to be implemented with the coefficients tuned for safely turning at the sharp curves. My attempts at this are not successful yet, as the PID tuning takes too much time, and the tuning is usually model dependent, i.e. in this case the road type and car dependent. However, with the open loop control of the steering angles, the car is able to finish multiple laps without any problems. 
 
 One of the difficult turns on the track ( in terms of road identification and turn angles) is presented below.
 
